@@ -1,0 +1,63 @@
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Key repository</title>
+	<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+	<script src="jsencrypt.min.js"></script>
+	<script type="text/javascript">
+
+		crypt = new JSEncrypt();
+		keys = crypt.getKey();
+		privateKey = keys.getPrivateKey();
+		publicKey = keys.getPublicKey();
+			
+		displayKeys = function () {
+			 $("#privateKey").val(privateKey);
+			 $("#publicKey").val(publicKey);
+		}
+
+		sendRegData = function () {
+			userName = $("#userName").val();
+			// construct an object to be sent to the server
+			
+			payload = { user: userName, publicKey: publicKey };
+			// convert the object to JSON which is an object that
+			// the server recognizes. Make sure that you have included the required
+			//information 
+			logRequest(payload)
+			const url = "http://localhost:8888/api/pubkeys"
+			$.post(url, payload).done(function(result){console.log(result)}).fail(function(error){console.log(error)})
+			// make a POST request to /api/pubkeys with the expected information
+		}
+
+		logRequest = function (message) {
+			messagesTable = document.getElementById('messagesTable');
+			messagesTable.innerHTML +=
+				"<tr><td>" + JSON.stringify(message) + "</td></tr>";
+		}
+
+
+	</script>
+</head>
+
+<body style="padding:20px;">
+
+	<h1>Register username and public key</h1>
+	<input id="userName" type="text" placeholder="username" style="width:100px"> </input>
+	<button onclick="displayKeys();">Generate keys</button>
+	<br>
+	<textarea name="privateKey" id="privateKey" placeholder="private key" cols="30" rows="10"
+		style="resize: none;"></textarea>
+	<textarea name="publicKey" id="publicKey" placeholder="public key" cols="30" rows="10"
+		style="resize: none;"></textarea>
+	<br>
+	<button onclick="sendRegData();">Send</button>
+
+
+	<h1>Request log:</h1>
+	<table id="messagesTable" style="width:400px; border:1px solid black"></table>
+
+</body>
+
+</html>

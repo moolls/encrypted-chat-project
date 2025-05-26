@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="index.css">
+	<title>Tiny ws chat</title>
+	<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jsencrypt/3.0.0-rc.1/jsencrypt.min.js"></script>
+	<script src="./js/script.js" defer></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+</head>
+
+<body>
+	<div class="container">
+		<div id="set_username">
+			<form id="userForm" class="msgForm">
+				<input type="text" placeholder="Username" class="input" id="userinputBox" />
+				<div id="set_private_key">
+				<input type="text" placeholder="Private key" class="input" id="userprivatekeyBox" />
+				</div>
+				<input type="submit" class="btn" value="Connect to chat">
+			</form>
+		</div>
+		<div id="chat">
+			<p class="msg">Messages:</p>
+			<div id="messages" class="messages"></div>
+			<form id="msgForm" class="msgForm">
+				<input type="text" placeholder="Send message" class="input" id="messageinputBox" />
+				<label>
+					<input type="checkbox" id="encryptCheckbox" /> Encrypt message
+				</label>
+				<input type="submit" class="btn" value="Send">
+				<button type="reset" class="btn">Leave chat</button>
+			</form>
+		</div>
+		<select id="publicKeysSelect">
+			<option value="">Select a user</option>
+		</select>
+
+
+<div id="search_user">
+  <form id="searchForm" class="msgForm">
+    <input type="text" placeholder="Search for a user" class="input" id="searchInputBox" />
+    <input type="submit" class="btn" value="Search">
+  </form>
+  <div id="searchResult" class="searchResult"></div>
+</div>
+
+	</div>
+
+
+</body>
+
+</html>

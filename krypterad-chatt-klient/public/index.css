@@ -1,0 +1,121 @@
+html{
+    font-size: 62.5%;
+}
+
+body{
+    margin:0;
+    padding: 0;
+    display:flex;
+    justify-content:center;
+}
+.container{
+
+	width: 95vw;
+	max-width: 500px;
+	height: 95vh;
+}
+#chat,#set_username{
+
+    margin-top: 5rem;
+    display:flex;
+    flex-direction:column;
+    height: 60vh;
+
+}
+#chat{
+	display: none;
+}
+
+#search_user{
+	display: none;
+}
+
+#publicKeysSelect {
+    display: none;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: aliceblue;
+    border-radius: 0.5rem;
+    font-size: 1.6rem;
+    width: 100%;
+    border: 1px solid #ccc;
+    color: #333;
+    transition: all 0.3s ease;
+}
+
+#publicKeysSelect:hover {
+    border-color: #007bff; 
+}
+
+#publicKeysSelect:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+#publicKeysSelect option {
+    background-color: white;
+    color: #333;
+    padding: 10px;
+    font-size: 1.6rem;
+}
+
+#publicKeysSelect option:hover {
+    background-color: #f2f2f2;
+    color: #007bff;
+}
+
+.msg{
+    color:blueviolet;
+    font-size: 2rem;
+	position: absolute;
+	top: 5px;
+}
+.msgCtn:nth-child(even){
+	background-color: darkcyan;
+}
+
+
+.msgCtn{
+    margin: 1rem 0;
+    color: white;
+    padding: 1rem 1rem;
+    background-color: blueviolet;
+    border-radius: 6px;
+    font-size: 2rem
+}
+.msgForm{
+    display:flex;
+    flex-direction:row;
+}
+.input{
+    height: 100%;
+    flex: 4;
+    margin-right: 2rem;
+    border:none;
+    border-radius: .5rem;
+    padding: 2px 1rem;
+    font-size: 1.5rem;
+    background-color:aliceblue;
+}
+
+.input:focus{
+    background-color:white;
+}
+
+.btn{
+    height:5rem;
+    flex: 1;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius: .5rem;
+    background-color:blueviolet;
+    color: whitesmoke;
+    border:none;
+    font-size: 1.6rem;
+	margin: 0 5px 0 0;
+}
+.btn[type="reset"]{
+	background-color: crimson;
+}
